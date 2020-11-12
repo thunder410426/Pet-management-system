@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--这个是topbar-->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="topbar" name="topbar" th:fragment="topbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+
+            <p class="navbar-brand">username</p>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" >
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">刷新</a></li>
+                <li><a href="#">设置</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">客服</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+<!--这个是sidebar-->
+<div class="container-fluid" id="sidebar" name="sidebar" th:fragment="sidebar" style="margin-top: 30px">
+    <nav>
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                <li><a href="/add-purchase">采购管理</a></li>
+                <li><a href="/history-purchase">销售管理</a></li>
+                <li><a href="/new-sell">库存管理</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li><a href="">人员管理</a></li>
+                <li><a href="">财款管理</a></li>
+                <li><a href="">报警管理</a></li>
+                <li><a href="">报表管理</a></li>
+                <li><a href="">关于我们</a></li>
+            </ul>
+        </div>
+
+    </nav>
+</div>
+</body>
+</html>

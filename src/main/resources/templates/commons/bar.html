@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>欢迎使用新华图书管理系统</title>
+<!-- Bootstrap core CSS -->
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="starter-template.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<style>
+    li{
+        opacity: initial;
+        list-style:none;
+        font-size:14px;
+        line-height:1.42857143;
+        position:relative;
+        display:block;
+        font-weight:normal;
+        padding: 5px 15px;
+        color:#337ab7;
+    }
+    li span {
+        opacity: initial;
+        padding-left:5px;
+        cursor:pointer;
+        font-size: 14px;
+        line-height: 1.42857143;
+        position:relative;
+        font-weight: normal;
+        display: block;
+        padding: 5px 15px;
+        color:#337ab7;
+    }
+    .open{
+        opacity: initial;
+        float: left;
+        font-size:14px;
+        font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+        color:#337ab7;
+        font-weight: normal;
+    }
+    .closed{
+        opacity:initial;
+        float:left;
+        font-size: 14px;
+        font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+        color: #337ab7;
+        font-weight:normal;
+        display:block;
+    }
+    .show{
+        opacity: initial;
+        display:block;
+        float: left;
+        font-size: 14px;
+        font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+        font-weight:normal;
+        color:#337ab7;
+    }
+    .hide{
+        opacity: initial;
+        float: left;
+        display:none;
+        font-size: 14px;
+        font-weight:normal;
+        font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+        color: #337ab7;
+    }
+    .close{
+        font-size:14px;
+        padding: 5px 15px;
+        color: #337ab7;
+        opacity: initial;
+        font-weight:normal;
+        display: block;
+    }
+    .close:focus, .close:hover {
+        opacity:initial;
+        color: #337ab7;
+        padding: 5px 15px;
+        font-size: 14px;
+        display: block;
+        font-weight: normal;
+        text-decoration:none;
+    }
+    .open:focus, .open:hover{
+        opacity:initial;
+        color: #337ab7;
+        padding:5px 15px;
+        font-size:14px;
+        font-weight:normal;
+        text-decoration:none;
+    }
+    .a1{
+        opacity:initial;
+        position:relative;
+        display:block;
+        padding: 10px 40px;
+        text-decoration:none;
+        padding-left:0px;
+        font-weight:normal;
+        font-size:14px;
+    }
+
+
+</style>
+<!--树打开和关闭的控制器-->
+<script type="text/javascript">
+
+    window.onload = function (){
+        var Allspan = document.getElementsByTagName('span');
+        for(var i = 0 ; i<Allspan.length; i++){
+            Allspan[i].onclick=function(){
+                if(this.className =="open"){
+                    this.className = "close";
+                    this.nextElementSibling.className="hide";
+                }else{
+                    var span = document.querySelector("ul.tree span.open");
+                    if(span){
+                        span.className="closed";
+                        span.nextElementSibling.className = "hide";
+                    }
+                    this.className = "open";
+                    this.nextElementSibling.className="show";
+                }
+            }
+
+        }
+    }
+
+</script>
+<head></head>
+<body>
+<!--这个是topbar-->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="topbar" name="topbar" th:fragment="topbar">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="http://getbootstrap.com/docs/4.0/examples/dashboard/#">[[${session.username}]]</a>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+
+            <a class="navbar-brand"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" >
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" onclick="location=location">刷新</a></li>
+                <li><a href="/login">退出登录</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+</nav>
+<!--这个是sidebar-->
+<div class="container-fluid" id="sidebar" name="sidebar" th:fragment="sidebar" style="margin-top: 60px;">
+    <nav>
+        <div class="col-sm-3 col-md-2 sidebar"  >
+            <!--兽医-->
+            <li>
+            <ul class="nav nav-sidebar tree">
+                <div>
+                    <span class="navbar-collapse collapse" style="float: left;"><a class="glyphicon glyphicon-shopping-cart a1" style="text-decoration:none;">  兽医信息管理</a></span>
+                <ul class="hide nav nav-sidebar">
+                    <li><a style="padding: 0px" href="/add-veterinary1" class="a1">添加新兽医</a></li>
+                    <li><a style="padding: 0px" href="/msgveterinary" class="a1">查看所有兽医信息</a></li>
+                </ul>
+                </div>
+            </ul>
+            </li>
+            <!--客户-->
+            <li>
+                <ul class="nav nav-sidebar tree">
+                    <div class="">
+                        <span class="navbar-collapse collapse" style="float: left">
+                            <a class="glyphicon glyphicon-tag a1" style="text-decoration:none;">  客户信息管理</a></span>
+                        <ul class="hide">
+                            <li><a style="padding: 0px" href="/add-customer1" class="a1">添加新客户</a></li>
+                            <li><a style="padding: 0px" href="/msg-customer" class="a1">客户信息查看</a></li>
+                        </ul>
+                    </div>
+                </ul>
+            </li>
+            <!--宠物-->
+            <li>
+                <ul class="nav nav-sidebar tree">
+                    <div>
+                    <span class="navbar-collapse collapse" style="float: left">
+                            <a class="glyphicon glyphicon-user a1" style="text-decoration:none;">  宠物管理</a></span>
+                    <ul class="hide">
+                        <li><a style="padding: 0px" href="" class="a1">宠物访问管理</a></li>
+                        <li><a style="padding: 0px" href="/pet1" class="a1">宠物信息管理</a></li>
+                    </ul>
+        </div>
+                </ul>
+            </li>
+
+        </div>
+    </nav>
+</div>
+</body>
+</html>
+
+
+
+
+

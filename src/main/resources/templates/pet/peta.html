@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>欢迎使用新华图书管理系统</title>
+    <div th:insert="~{commons/bar}";></div>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <head>
+        <meta charset="UTF-8">
+        <title>销售商管理</title>
+    </head>
+<body>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-top:-130px">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    新增宠物
+    </button>
+    <div class="collapse" id="collapseExample">
+        <div class="well">
+            <form  action="/pet">
+                <div style="padding-bottom:10px;padding-left:63px">
+                    <a>宠物名:</a>
+                    <input th:name="pname" class="form-control" style="width: 136px;display: inline;">
+                    <a style="padding-left: 50px;">年龄:</a>
+                    <input th:name="page" class="form-control" style="width: 136px;display: inline;">
+                    <a>主人:</a>
+                    <input th:name="powner" class="form-control" style="width: 136px;display: inline;">
+                    <a>种类:</a>
+                    <input th:name="ptype" class="form-control" style="width: 136px;display: inline;">
+
+                </div>
+                <div style="padding-bottom:10px;padding-left:49px;margin: auto">
+                    <a>所患病:</a>
+                    <input th:name="pdisease" class="form-control" style="width: 136px;display: inline;">
+                    <a style="padding-left: 65px">严重程度:</a>
+                    <input th:name="pseverity" class="form-control" style="width: 136px;display: inline;">
+                    <button type="submit" class="btn btn-info" href="">确定</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </form>
+    <h2 class="sub-header">宠物信息表</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th style="width:120px">宠物名</th>
+                <th style="width:120px">年龄</th>
+                <th style="width:120px">主人</th>
+                <th style="width:120px">种类</th>
+                <th style="width:120px">所患病</th>
+                <th style="width:120px">严重程度</th>
+            </tr>
+            </thead>
+            <tbody th:each="pet:${petList}">
+            <tr>
+                <td th:text="${pet.pname}"></td>
+                <td th:text="${pet.page}"></td>
+                <td th:text="${pet.powner}"></td>
+                <td th:text="${pet.ptype}"></td>
+                <td th:text="${pet.pdisease}"></td>
+                <td th:text="${pet.pseverity}"></td>
+                <td>
+                    <a class="btn btn-sm btn-primary">编辑</a>
+                    <button>删除</button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../resources/static/asserts/js/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
+</html>

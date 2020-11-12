@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>欢迎使用宠物诊所管理系统</title>
+    <div th:insert="~{commons/bar}";></div>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <head>
+        <meta charset="UTF-8">
+        <title>客户信息</title>
+    </head>
+<body>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-top:-280px">
+    <form class="navbar-form navbar-right" style="margin-top:20px;margin-right:700px">
+        <input type="text" class="form-control" placeholder="Search...">
+        <button>搜索</button>
+    </form>
+    <h2 class="sub-header" style="">客户信息表</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th style="width:120px">编号</th>
+                <th style="width:120px">姓名</th>
+                <th style="width:120px">联系方式(电话)</th>
+                <th style="width:120px">性别</th>
+                <th style="width:120px">宠物1</th>
+                <th style="width:120px">宠物2</th>
+            </tr>
+            </thead>
+            <tbody th:each="customer:${customerList}">
+            <td>
+                <td th:text="${customer.cusid}"></td>
+                <td th:text="${customer.cusname}"></td>
+                <td th:text="${customer.custel}"></td>
+                <td th:text="${customer.cussex}"></td>
+                <td th:text="${customer.cuspet1}"></td>
+                <td th:text="${customer.cuspet2}"></td>
+            </td>
+            <td>
+                <a class="btn btn-sm btn-primary" href="/add-customer1">编辑</a>
+                <button>删除</button>
+            </td>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

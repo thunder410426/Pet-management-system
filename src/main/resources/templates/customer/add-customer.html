@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>采购管理</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .form-control{
+            width: 50%;
+            display: inline;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <title>新增销售</title>
+</head>
+<body>
+<div th:insert="commons/bar"></div>
+<form class="form-signin" id="addcustomer" name="addcustomer" action="add-customer">
+    <!--框线-->
+    <div class="flex-container" style="border: 1px solid #ccc!important;padding:10px;border-radius: 16px!important;margin-top: -100px;margin-left: 600px;margin-right: 100px;width: 700px;">
+        <div style="padding-bottom:10px;padding-left:63px">
+            <a>编号:</a>
+            <input th:name="cusid" class="form-control" style="width: 50%;display: inline;">
+        <div style="padding-bottom:10px;padding-left:35px;margin-top: 10px">
+            <a>姓名:</a>
+            <input th:name="cusname" class="form-control" style="width: 50%;display: inline;">
+        </div>
+        <div style="padding-bottom:10px;padding-left:39px">
+                <a>联系方式:</a>
+                <input th:name="custel" class="form-control" style="width: 50%;display: inline;">
+         </div>
+        <div style="padding-bottom:10px;padding-left:15px;">
+            <a>性别:</a>
+            <input th:name="cussex" class="form-control" style="width: 50%;display: inline;">
+        </div>
+        <div style="padding-bottom:10px;padding-left:20px">
+            <a>宠物1:</a>
+            <input th:name="cuspet1" class="form-control" style="width: 50%;display: inline;">
+        <div style="padding-bottom:10px;padding-left:8px">
+            <a>宠物2:</a>
+            <input th:name="cuspet2" class="form-control" style="width: 50%;display: inline;">
+        </div>
+        <div style="padding-bottom:10px;padding-left:8px">
+
+            <p>
+        <button class="btn btn-lg btn-success" type="submit" >取消</button>
+        <button class="btn btn-lg btn-warning" type="submit" href="msg-customer">确定</button>
+            </p>
+    </div>
+        </div></div></div>
+</form><p></p>
+<script src="../../static/asserts/js/jquery-3.4.1.min.js"></script>
+</body>
+</html>

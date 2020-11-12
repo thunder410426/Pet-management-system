@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>欢迎使用新华图书管理系统</title>
+    <div th:insert="~{commons/bar}";></div>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <title>兽医信息浏览</title>
+</head>
+<body>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-top:-130px">
+    <form class="navbar-form navbar-right" style="margin-top:20px;margin-right:700px">
+        <input type="text" class="form-control" placeholder="Search...">
+        <button >搜索</button>
+    </form>
+    <h2 class="sub-header">兽医信息浏览</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>特长</th>
+                <th>联系方式</th>
+                <th>性别</th>
+            </tr>
+            </thead>
+            <tbody th:each="veterinary:${veterinaryList}">
+            <tr>
+                <td th:text="${veterinary.veterinaryid}"></td>
+                <td th:text="${veterinary.veterinaryname}"></td>
+                <td th:text="${veterinary.veterinaryage}"></td>
+                <td th:text="${veterinary.veterinaryspecialty}"></td>
+                <td th:text="${veterinary.veterinarynum}"></td>
+                <td th:text="${veterinary.veterinarysex}"></td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="add-veterinary1">编辑</a>
+                    <button>删除</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

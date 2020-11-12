@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>欢迎使用新华图书管理系统</title>
+    <div th:insert="~{commons/bar}";></div>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <head>
+        <meta charset="UTF-8">
+        <title>采购历史</title>
+    </head>
+<body>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-top:-280px">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        新增供应商
+    </button>
+    <div class="collapse" id="collapseExample">
+        <div class="well">
+            <form>
+            <div style="padding-bottom:10px;padding-left:63px">
+                <a>公司名称:</a>
+                <input th:name="purchasebookISBN" class="form-control" style="width: 136px;display: inline;">
+                <a style="padding-left: 50px;">负责人:</a>
+                <input th:name="purchasesaleprice" class="form-control" style="width: 136px;display: inline;">
+            </div>
+            <div style="padding-bottom:10px;padding-left:49px;margin: auto">
+                <a>负责人称谓:</a>
+                <input th:name="purchasebookauthor" class="form-control" style="width: 136px;display: inline;">
+                <a style="padding-left: 65px">电话:</a>
+                <input th:name="purchasebooktrans" class="form-control" style="width: 136px;display: inline;">
+            </div>
+            <div style="padding-bottom:10px;padding-left:70px;">
+                <a>地址:</a>
+                <input th:name="purchasebookname" class="form-control" style="width: 500px;display: inline;">
+                    <button type="submit" class="btn btn-info">确定</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <h2 class="sub-header">供应商基本信息列表</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>公司名称</th>
+                <th>负责人</th>
+                <th>负责人称谓</th>
+                <th>电话</th>
+                <th>地址</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1,001</td>
+                <td>Lorem</td>
+                <td>ipsum</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>sit</td>
+                <td>sit</td>
+                <td>sit</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../resources/static/asserts/js/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
+</html>
